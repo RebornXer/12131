@@ -2801,35 +2801,15 @@ M:AddSeperatorLeft("Info")
     M:AddLabelLeft("Day : "..Date)
 	M:AddLineLeft("")
 	M:AddSeperatorRight("Setting")
-	
-	local player = game:GetService("Players").LocalPlayer
 
-local blackscreen = function(enable)
-    local playerGui = player:WaitForChild("PlayerGui")
-    if not enable then
-        local sUi = playerGui:FindFirstChild("Blackscreen")
-        if sUi then sUi:Destroy() end
-        return
-    elseif playerGui:FindFirstChild("Blackscreen") then
-        return
-    end
-    local sUi = Instance.new("ScreenGui", playerGui)
-    sUi.Name = "Blackscreen"
-    sUi.DisplayOrder = -727
-
-    local uiFrame = Instance.new("Frame", sUi)
-    uiFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    uiFrame.Size = UDim2.new(0, 72727, 0, 72727)
-    uiFrame.Position = UDim2.new(0, 0, -5, 0)
-end
 M:AddToggleRight("Black Screen [Reduce GPU]",BlackScreen,function(a)
 BlackScreen = a
 if BlackScreen == true then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
-    blackscreen(true)
+ 
 elseif BlackScreen == false then
     game:GetService("RunService"):Set3dRenderingEnabled(true)
-    blackscreen(false)
+   
 end
 end)
 
