@@ -2801,9 +2801,7 @@ M:AddSeperatorLeft("Info")
     M:AddLabelLeft("Day : "..Date)
 	M:AddLineLeft("")
 	M:AddSeperatorRight("Setting")
-	M.AddDropdownRight("Select Item",{"เดี้ยวค่อยทำ"},function(a)
-		Select_Item = a
-	end)
+	
 	local player = game:GetService("Players").LocalPlayer
 
 local blackscreen = function(enable)
