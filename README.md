@@ -2806,7 +2806,7 @@ M:AddToggleRight("Black Screen [Reduce GPU]",BlackScreen,function(a)
 BlackScreen = a
 if BlackScreen == true then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
- 
+
 elseif BlackScreen == false then
     game:GetService("RunService"):Set3dRenderingEnabled(true)
    
@@ -2816,3 +2816,18 @@ end)
 M:AddToggleLeft("้เก็บของ",Give,function(a)
 	Give = a
 end)
+
+spawn(function()
+	while while() do
+		pcall(function()
+			if Give then
+				for i,v in pairs(game.Workspace:GetChildren()) do
+					if v.Name == "Copper Goblet" then
+						game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = v.Part.CFrame
+					end
+				end
+			end
+		end)
+	end
+end()
+		
