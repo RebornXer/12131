@@ -2794,7 +2794,7 @@ end
  local RenUi = Update:AddWindow("LungPooh Hub","10039618734",Enum.KeyCode.RightControl)
 
     local M = RenUi:AddTab("Main","6026568198")
-    local T= RenUi:AddTab("Island","6035190846")
+    local P = RenUi:AddTab("Player","6035190846")
 M:AddSeperatorLeft("Info")
     M:AddLabelLeft("Wecome To RebornXer Hub Script")
     Date = os.date("%d".." ".."%B".." ".."%Y")
@@ -2828,19 +2828,30 @@ spawn(function()
 	while wait() do
 		pcall(function()
 			if Give then
-				for i,v in pairs(game.Workspace:GetChildren()) do
-					if v.Name == "Copper Goblet" or v.Name == "Silver Goblet" then
-						if v.Part then
-							print(v)
+				for i,v in pairs(game:GetService("Workspace").Trinkets:GetChildren()) do
+					if v.Name == "RareSpawn" or v.Name == "EpicSpawn" then
 						repeat wait()
 						Tp(v.CFrame)
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
 						until not v.Part or Give == false
-					end
 					end
 				end
 			end
 		end)
 	end
 end)
-		
+Playerslist = {}
+    
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+	table.insert(Playerslist,v.Name)
+end
+
+P:AddDropdownLeft("Select Player",PlayerList,function(a)
+	Select_Player = a
+end)
+
+P:AddButtonLeft("TP Player",function()
+	local TpPy = game.Workspace:FindFirstChild(Select_Player)
+	Tp(TpPy.HumanoidRootPart.CFrame)
+end)
+
