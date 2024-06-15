@@ -1,5 +1,3 @@
---412
-
 local ZenHub = Instance.new("ScreenGui")
 local Open = Instance.new("TextButton")
 local fuckshit = Instance.new("UICorner")
@@ -2821,8 +2819,8 @@ end)
 
 function Tp(Pos)
 	local playerName = game.Players.LocalPlayer.Name
-local player = game.Workspace(playerName).HumanoidRootPart.Position
-player:FindFirstChild("HumanoidRootPart").Position = Pos
+local player = game.Workspace:FindFirstChild(playerName)
+player.HumanoidRootPart.Position = Vector3.new(Pos)
 end
 
 
@@ -2831,10 +2829,10 @@ spawn(function()
 		pcall(function()
 			if Give then
 				for i,v in pairs(game.Workspace:GetChildren()) do
-					if v.Name == "Copper Goblet" then
+					if v.Name == "Copper Goblet" or v.Name == "Silver Goblet" then
 						print(v)
 						repeat wait()
-						Tp(Vector3.new(v.Part.CFrame))
+						Tp(v.Main.CFrame)
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
 						until not v.Part or Give == false
 					end
