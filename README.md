@@ -1,3 +1,5 @@
+--ytu
+
 local ZenHub = Instance.new("ScreenGui")
 local Open = Instance.new("TextButton")
 local fuckshit = Instance.new("UICorner")
@@ -2842,7 +2844,7 @@ spawn(function()
 						repeat wait()
 						Tp(v.Part.CFrame)
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
-						until not v.Part of Give == false
+						until not v.Part or Give == false
 					end
 				end
 			end
