@@ -2834,7 +2834,7 @@ end
 
 
 spawn(function()
-	while while() do
+	while wait() do
 		pcall(function()
 			if Give then
 				for i,v in pairs(game.Workspace:GetChildren()) do
