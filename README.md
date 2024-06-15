@@ -2830,11 +2830,13 @@ spawn(function()
 			if Give then
 				for i,v in pairs(game.Workspace:GetChildren()) do
 					if v.Name == "Copper Goblet" or v.Name == "Silver Goblet" then
-						print(v)
+						if v.Part then
+							print(v)
 						repeat wait()
-						Tp(v.Main.CFrame)
+						Tp(v.CFrame)
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
 						until not v.Part or Give == false
+					end
 					end
 				end
 			end
