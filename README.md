@@ -1,5 +1,3 @@
--- 123
-
 local ZenHub = Instance.new("ScreenGui")
 local Open = Instance.new("TextButton")
 local fuckshit = Instance.new("UICorner")
@@ -2818,19 +2816,10 @@ end)
 M:AddToggleLeft("้เก็บของ",Give,function(a)
 	Give = a
 end)
-local playerName = game.Players.LocalPlayer.Name
-local player = game.Workspace:FindFirstChild(playerName)
-
-if player and player:FindFirstChild("HumanoidRootPart") then
-    local humanoidRootPartCFrame = player.HumanoidRootPart.CFrame
-    print(humanoidRootPartCFrame)
-else
-    print("HumanoidRootPart not found for player " .. playerName)
-end
 
 function Tp(Pos)
 	local playerName = game.Players.LocalPlayer.Name
-local player = game.Workspace:FindFirstChild(playerName)
+local player = game.Workspace(playerName).HumanoidRootPart.Position
 player:FindFirstChild("HumanoidRootPart").Position = Pos
 end
 
@@ -2841,8 +2830,9 @@ spawn(function()
 			if Give then
 				for i,v in pairs(game.Workspace:GetChildren()) do
 					if v.Name == "Copper Goblet" then
+						print(v)
 						repeat wait()
-						Tp(v.Part.CFrame)
+						Tp(Vector3.new(v.Part.CFramำ))
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
 						until not v.Part or Give == false
 					end
