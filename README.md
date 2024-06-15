@@ -1,3 +1,4 @@
+--412
 local ZenHub = Instance.new("ScreenGui")
 local Open = Instance.new("TextButton")
 local fuckshit = Instance.new("UICorner")
@@ -2832,7 +2833,7 @@ spawn(function()
 					if v.Name == "Copper Goblet" then
 						print(v)
 						repeat wait()
-						Tp(Vector3.new(v.Part.CFramำ))
+						Tp(Vector3.new(v.Part.CFrame))
 						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
 						until not v.Part or Give == false
 					end
