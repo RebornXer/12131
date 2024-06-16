@@ -2825,21 +2825,23 @@ end
 
 
 spawn(function()
-	while wait() do
-		pcall(function()
-			if Give then
-				for i,v in pairs(game:GetService("Workspace").Trinkets:GetChildren()) do
-					if v.Name == "RareSpawn" or v.Name == "EpicSpawn" then
-						repeat wait()
-						Tp(v.CFrame)
-						game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game)
-						until not v.Part or Give == false
-					end
-				end
-			end
-		end)
-	end
+    while wait() do
+        pcall(function()
+            if Give then
+                for i, v in pairs(game.Workspace:GetChildren()) do
+                    if v:FindFirstChild("PrimaryPart") and v.PrimaryPart == "Part" then
+                        repeat
+                            wait()
+                            Tp(v.WorldPivot)
+                            game:GetService("VirtualInputManager"):SendKeyEvent(true, "E", false, game)
+                        until v.PrimaryPart == "Part" or not Give
+                    end
+                end
+            end
+        end)
+    end
 end)
+
 Playerslist = {}
     
 for i,v in pairs(game:GetService("Players"):GetChildren()) do
